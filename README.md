@@ -40,9 +40,9 @@
         </tr>
     </thead>
     <tr>
-        <td>91%</td>
-        <td>90%</td>
-        <td>90%</td>
+        <td>89.92%</td>
+        <td>91.11%</td>
+        <td>90.67%</td>
     </tr>
 </table>
 
