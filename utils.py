@@ -28,7 +28,7 @@ def test_accuracy(model, test_dataloader, device):
     with torch.no_grad():
         for input, labels in test_dataloader:
             input, labels = input.to(device).squeeze().float(), labels.to(device)
-            outputs, _, _ = model(input)
+            outputs = model(input)
             test_acc += (labels == outputs.argmax(1)).sum().item() / np.prod(labels.shape)
         test_acc /= len(test_dataloader)
     
