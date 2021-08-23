@@ -10,8 +10,8 @@ class PointCloudDataset(Dataset):
         self.transform = transform
         self.files = []
 
-        images_dir = root_dir + '/02691156/points/'
-        categories_dir = root_dir + '/02691156/expert_verified/points_label/'
+        images_dir = root_dir + '02691156/points/'
+        categories_dir = root_dir + '02691156/expert_verified/points_label/'
 
         for f in os.listdir(categories_dir):
             self.files.append({
@@ -21,7 +21,7 @@ class PointCloudDataset(Dataset):
 
     def __len__(self):
         return len(self.files)
-
+    
     def __getitem__(self, idx):
         with open(self.files[idx]['pointcloud_path'], 'r') as f:
             pointcloud = read_pts(f)
@@ -30,5 +30,5 @@ class PointCloudDataset(Dataset):
         pointcloud, category = PointSampler(1650)((pointcloud, category))
         if self.is_train:
             pointcloud, category = self.transform((pointcloud, category))
-
-        return pointcloud, category 
+        
+        return pointcloud, category
